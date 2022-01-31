@@ -137,7 +137,7 @@ class SleepTrackerViewModel(
 
             update(oldNight)
 
-            // Set state to navigate to the SleepQualityFragment.
+            // Set state to navigate to the GradaFragment.
             _navigateToSleepQuality.value = oldNight
         }
     }

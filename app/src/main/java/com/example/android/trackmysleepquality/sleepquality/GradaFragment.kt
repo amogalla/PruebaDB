@@ -35,7 +35,7 @@ import com.example.android.trackmysleepquality.databinding.FragmentSleepQualityB
  * Once the user taps an icon, the quality is set in the current sleepNight
  * and the database is updated.
  */
-class SleepQualityFragment : Fragment() {
+class GradaFragment : Fragment() {
 
     /**
      * Called when the Fragment is ready to display content to the screen.
@@ -51,26 +51,26 @@ class SleepQualityFragment : Fragment() {
 
         val application = requireNotNull(this.activity).application
 
-        val arguments = SleepQualityFragmentArgs.fromBundle(arguments!!)
+        val arguments = GradaFragmentArgs.fromBundle(arguments!!)
 
         // Create an instance of the ViewModel Factory.
         val dataSource = EntradaDatabase.getInstance(application).entradaDatabaseDao
-        val viewModelFactory = SleepQualityViewModelFactory(arguments.sleepNightKey, dataSource)
+        val viewModelFactory = GradaViewModelFactory(arguments.sleepNightKey, dataSource)
 
         // Get a reference to the ViewModel associated with this fragment.
         val sleepQualityViewModel =
                 ViewModelProvider(
-                        this, viewModelFactory).get(SleepQualityViewModel::class.java)
+                        this, viewModelFactory).get(GradaViewModel::class.java)
 
         // To use the View Model with data binding, you have to explicitly
         // give the binding object a reference to it.
-        binding.sleepQualityViewModel = sleepQualityViewModel
+        binding.gradaViewModel = sleepQualityViewModel
 
         // Add an Observer to the state variable for Navigating when a Quality icon is tapped.
         sleepQualityViewModel.navigateToSleepTracker.observe(viewLifecycleOwner, Observer {
             if (it == true) { // Observed state is true.
                 this.findNavController().navigate(
-                        SleepQualityFragmentDirections.actionSleepQualityFragmentToSleepTrackerFragment())
+                        GradaFragmentDirections.actionSleepQualityFragmentToSleepTrackerFragment())
                 // Reset state to make sure we only navigate once, even if the device
                 // has a configuration change.
                 sleepQualityViewModel.doneNavigating()

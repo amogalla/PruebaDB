@@ -25,13 +25,13 @@ import com.example.android.trackmysleepquality.database.EntradaDatabaseDao
  *
  * Provides the key for the night and the EntradaDatabaseDao to the ViewModel.
  */
-class SleepQualityViewModelFactory(
+class GradaViewModelFactory(
         private val sleepNightKey: Long,
         private val dataSource: EntradaDatabaseDao) : ViewModelProvider.Factory {
     @Suppress("unchecked_cast")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(SleepQualityViewModel::class.java)) {
-            return SleepQualityViewModel(sleepNightKey, dataSource) as T
+        if (modelClass.isAssignableFrom(GradaViewModel::class.java)) {
+            return GradaViewModel(sleepNightKey, dataSource) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
