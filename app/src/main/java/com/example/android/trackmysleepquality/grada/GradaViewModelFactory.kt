@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-package com.example.android.trackmysleepquality.sleeptracker
+package com.example.android.trackmysleepquality.grada
 
-import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.android.trackmysleepquality.database.EntradaDatabaseDao
@@ -24,17 +23,16 @@ import com.example.android.trackmysleepquality.database.EntradaDatabaseDao
 /**
  * This is pretty much boiler plate code for a ViewModel Factory.
  *
- * Provides the EntradaDatabaseDao and context to the ViewModel.
+ * Provides the key for the night and the EntradaDatabaseDao to the ViewModel.
  */
-class SleepTrackerViewModelFactory(
-    private val dataSource: EntradaDatabaseDao,
-    private val application: Application) : ViewModelProvider.Factory {
+class GradaViewModelFactory(
+        private val sleepNightKey: Long,
+        private val dataSource: EntradaDatabaseDao) : ViewModelProvider.Factory {
     @Suppress("unchecked_cast")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(SleepTrackerViewModel::class.java)) {
-            return SleepTrackerViewModel(dataSource, application) as T
+        if (modelClass.isAssignableFrom(GradaViewModel::class.java)) {
+            return GradaViewModel(sleepNightKey, dataSource) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
-
