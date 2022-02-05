@@ -42,8 +42,6 @@ class PartidoFragment : Fragment() {
                 this.findNavController().navigate(
                         PartidoFragmentDirections
                                 .actionSleepTrackerFragmentToSleepQualityFragment(entrada.id_entrada))
-                // Reset state to make sure we only navigate once, even if the device
-                // has a configuration change.
                 partidoViewModel.doneNavigating()
             }
         })

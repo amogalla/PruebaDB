@@ -61,12 +61,12 @@ class PartidoViewModel(
             database.clear() 
     }
 
-    private suspend fun update(night: Entrada) {
-            database.update(night)
+    private suspend fun update(entrada: Entrada) {
+            database.update(entrada)
     }
 
-    private suspend fun insert(night: Entrada) {
-            database.insert(night)
+    private suspend fun insert(entrada: Entrada) {
+            database.insert(entrada)
     }
 
     /**

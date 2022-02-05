@@ -75,16 +75,21 @@ fun convertLongToDateString(systemTime: Long): String {
  *           See: https://developer.android.com/reference/android/text/Spanned
  */
 
-fun formatoEntradas(nights: List<Entrada>, resources: Resources): Spanned {
+fun formatoEntradas(entradas: List<Entrada>, resources: Resources): Spanned {
     val sb = StringBuilder()
     sb.apply {
         append(resources.getString(R.string.title))
-        nights.forEach {
+        entradas.forEach {
             append("<br>")
+            append("\tCódigo de entrada: ${it.id_entrada}<br><br>")
             append(resources.getString(R.string.partido))
+            append("\t${it.partido}<br>")
+            append("<br>")
             append(resources.getString(R.string.grada))
-            /*append("\t${convertLongToDateString(it.startTimeMilli)}<br>")
-            if (it.endTimeMilli != it.startTimeMilli) {
+            append("\t${it.grada}<br>")
+            append("-".repeat(75))
+
+            /*if (it.endTimeMilli != it.startTimeMilli) {
                 append(resources.getString(R.string.end_time))
                 append("\t${convertLongToDateString(it.endTimeMilli)}<br>")
                 append(resources.getString(R.string.quality))
