@@ -13,7 +13,7 @@ import kotlinx.coroutines.*
  * @param sleepNightKey The key of the current night we are working on.
  */
 class GradaViewModel(
-        private val sleepNightKey: Long = 0L,
+        private val entradaKey: Long = 0L,
         val database: EntradaDatabaseDao) : ViewModel() {
 
     private val _navigateToSleepTracker = MutableLiveData<Boolean?>()
@@ -27,7 +27,7 @@ class GradaViewModel(
 
     fun onSetSleepQuality(gradaElegida: Int) {
         viewModelScope.launch {
-            val entrada = database.get(sleepNightKey) ?: return@launch
+            val entrada = database.get(entradaKey) ?: return@launch
             when(gradaElegida){
                 0 -> entrada.grada = "Tribuna"
                 1 -> entrada.grada = "Preferencia"

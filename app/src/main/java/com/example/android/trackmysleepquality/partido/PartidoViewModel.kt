@@ -72,7 +72,7 @@ class PartidoViewModel(
     /**
      * Executes when the START button is clicked.
      */
-    fun seleccionDePartido() {
+    fun seleccionDePartido(partidoElegido:Int) {
         viewModelScope.launch {
             val entradaNueva = Entrada()
 
@@ -81,14 +81,20 @@ class PartidoViewModel(
             enrada_actual.value = getTonightFromDatabase()
 
             viewModelScope.launch {
-                val entradaAnterior = enrada_actual.value ?: return@launch
-                //oldNight.endTimeMilli = System.currentTimeMillis()
-                update(entradaAnterior)
-                _navigateToGrada.value = entradaAnterior
+                val entrada = enrada_actual.value ?: return@launch
+               // val entrada = database.get(entradaNueva.id_entrada) ?: return@launch
+
+                when(partidoElegido){
+                    1 -> entrada.partido = "Cádiz - Rayo"
+                    2 -> entrada.partido = "Cádiz Osasuna"
+                }
+                update(entrada)
+                _navigateToGrada.value = entrada
             }
 
         }
     }
+
 
     /**
      * Executes when the STOP button is clicked.

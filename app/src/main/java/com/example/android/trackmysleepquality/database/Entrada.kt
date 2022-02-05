@@ -10,7 +10,7 @@ data class Entrada(
         var id_entrada: Long = 0L,
 
         @ColumnInfo(name = "nombre_partido")
-        val partido: String = "",
+        var partido: String = "",
 
         @ColumnInfo(name = "nombre_grada")
         var grada: String = ""
