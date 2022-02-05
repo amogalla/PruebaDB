@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.example.android.trackmysleepquality.grada
+package com.example.android.gestiondeentradas.grada
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.android.trackmysleepquality.database.EntradaDatabaseDao
+import com.example.android.gestiondeentradas.database.EntradaDatabaseDao
 
 /**
  * This is pretty much boiler plate code for a ViewModel Factory.

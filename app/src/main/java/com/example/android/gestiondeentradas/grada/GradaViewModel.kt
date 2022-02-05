@@ -1,10 +1,10 @@
-package com.example.android.trackmysleepquality.grada
+package com.example.android.gestiondeentradas.grada
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.android.trackmysleepquality.database.EntradaDatabaseDao
+import com.example.android.gestiondeentradas.database.EntradaDatabaseDao
 import kotlinx.coroutines.*
 
 /**

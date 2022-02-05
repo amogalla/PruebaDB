@@ -1,5 +1,5 @@
 
-package com.example.android.trackmysleepquality.partido
+package com.example.android.gestiondeentradas.partido
 
 import android.app.Application
 import androidx.lifecycle.viewModelScope
@@ -7,9 +7,9 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
-import com.example.android.trackmysleepquality.database.EntradaDatabaseDao
-import com.example.android.trackmysleepquality.database.Entrada
-import com.example.android.trackmysleepquality.formatoEntradas
+import com.example.android.gestiondeentradas.database.EntradaDatabaseDao
+import com.example.android.gestiondeentradas.database.Entrada
+import com.example.android.gestiondeentradas.formatoEntradas
 import kotlinx.coroutines.*
 
 /**

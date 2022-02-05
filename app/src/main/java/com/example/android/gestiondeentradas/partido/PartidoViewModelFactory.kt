@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.example.android.trackmysleepquality.partido
+package com.example.android.gestiondeentradas.partido
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.android.trackmysleepquality.database.EntradaDatabaseDao
+import com.example.android.gestiondeentradas.database.EntradaDatabaseDao
 
 /**
  * This is pretty much boiler plate code for a ViewModel Factory.

@@ -12,7 +12,7 @@
 
         <variable
             name="gradaViewModel"
-            type="com.example.android.trackmysleepquality.grada.GradaViewModel" />
+            type="com.example.android.gestiondeentradas.grada.GradaViewModel" />
     </data>
 
     <!-- Start of the visible fragment layout using ConstraintLayout -->

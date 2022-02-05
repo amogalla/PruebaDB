@@ -1,15 +1,12 @@
-package com.example.android.trackmysleepquality
+package com.example.android.gestiondeentradas
 
 import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import com.example.android.trackmysleepquality.database.EntradaDatabase
-import com.example.android.trackmysleepquality.database.EntradaDatabaseDao
-import com.example.android.trackmysleepquality.database.Entrada
-import org.junit.Assert.assertEquals
+import com.example.android.gestiondeentradas.database.EntradaDatabase
+import com.example.android.gestiondeentradas.database.EntradaDatabaseDao
 import org.junit.After
 import org.junit.Before
-import org.junit.Test
 import org.junit.runner.RunWith
 import java.io.IOException
 

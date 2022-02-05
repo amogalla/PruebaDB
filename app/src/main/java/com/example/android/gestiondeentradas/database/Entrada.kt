@@ -1,4 +1,4 @@
-package com.example.android.trackmysleepquality.database
+package com.example.android.gestiondeentradas.database
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
