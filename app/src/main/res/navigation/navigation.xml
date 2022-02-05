@@ -27,7 +27,7 @@
         android:id="@+id/sleep_tracker_fragment"
         android:name="com.example.android.trackmysleepquality.partido.PartidoFragment"
         android:label="@string/sleep_tracker_fragment"
-        tools:layout="@layout/fragment_sleep_tracker">
+        tools:layout="@layout/fragment_partido">
         <action
             android:id="@+id/action_sleepTrackerFragment_to_sleepQualityFragment"
             app:destination="@id/sleep_quality_fragment"
@@ -39,7 +39,7 @@
         android:id="@+id/sleep_quality_fragment"
         android:name="com.example.android.trackmysleepquality.grada.GradaFragment"
         android:label="@string/sleep_quality_fragment"
-        tools:layout="@layout/fragment_sleep_quality">
+        tools:layout="@layout/fragment_grada">
         <argument
             android:name="sleepNightKey"
             app:argType="long" />

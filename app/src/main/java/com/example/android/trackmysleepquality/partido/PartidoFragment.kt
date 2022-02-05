@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.android.trackmysleepquality.R
 import com.example.android.trackmysleepquality.database.EntradaDatabase
-import com.example.android.trackmysleepquality.databinding.FragmentSleepTrackerBinding
+import com.example.android.trackmysleepquality.databinding.FragmentPartidoBinding
 
 class PartidoFragment : Fragment() {
 
@@ -19,8 +19,8 @@ class PartidoFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
 
         // Get a reference to the binding object and inflate the fragment views.
-        val binding: FragmentSleepTrackerBinding = DataBindingUtil.inflate(
-                inflater, R.layout.fragment_sleep_tracker, container, false)
+        val binding: FragmentPartidoBinding = DataBindingUtil.inflate(
+                inflater, R.layout.fragment_partido, container, false)
 
         val application = requireNotNull(this.activity).application
 
