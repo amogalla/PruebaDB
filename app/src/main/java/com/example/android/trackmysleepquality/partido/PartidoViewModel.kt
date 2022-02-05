@@ -9,7 +9,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.example.android.trackmysleepquality.database.EntradaDatabaseDao
 import com.example.android.trackmysleepquality.database.Entrada
-import com.example.android.trackmysleepquality.formatNights
+import com.example.android.trackmysleepquality.formatoEntradas
 import kotlinx.coroutines.*
 
 /**
@@ -19,24 +19,24 @@ class PartidoViewModel(
     val database: EntradaDatabaseDao,
     application: Application) : AndroidViewModel(application) {
 
-    private var tonight = MutableLiveData<Entrada?>()
+    private var enrada_actual = MutableLiveData<Entrada?>()
 
-    private val nights = database.getAllNights()
+    private val entradas = database.getAllNights()
 
     /**
      * Converted nights to Spanned for displaying.
      */
-    val nightsString = Transformations.map(nights) { nights ->
-        formatNights(nights, application.resources)
+    val string_entradas = Transformations.map(entradas) { entradas ->
+        formatoEntradas(entradas, application.resources)
     }
 
-    private val _navigateToSleepQuality = MutableLiveData<Entrada>()
+    private val _navigateToGrada = MutableLiveData<Entrada>()
 
-    val navigateToSleepQuality: LiveData<Entrada>
-        get() = _navigateToSleepQuality
+    val navigateToGrada: LiveData<Entrada>
+        get() = _navigateToGrada
 
     fun doneNavigating() {
-        _navigateToSleepQuality.value = null
+        _navigateToGrada.value = null
     }
 
     init {
@@ -45,7 +45,7 @@ class PartidoViewModel(
 
     private fun initializeTonight() {
         viewModelScope.launch {
-            tonight.value = getTonightFromDatabase()
+            enrada_actual.value = getTonightFromDatabase()
         }
     }
 
@@ -78,13 +78,13 @@ class PartidoViewModel(
 
             insert(entradaNueva)
 
-            tonight.value = getTonightFromDatabase()
+            enrada_actual.value = getTonightFromDatabase()
 
             viewModelScope.launch {
-                val oldNight = tonight.value ?: return@launch
+                val entradaAnterior = enrada_actual.value ?: return@launch
                 //oldNight.endTimeMilli = System.currentTimeMillis()
-                update(oldNight)
-                _navigateToSleepQuality.value = oldNight
+                update(entradaAnterior)
+                _navigateToGrada.value = entradaAnterior
             }
 
         }
@@ -95,13 +95,13 @@ class PartidoViewModel(
      */
     fun onStopTracking() {
         viewModelScope.launch {
-            val oldNight = tonight.value ?: return@launch
+            val oldNight = enrada_actual.value ?: return@launch
 
             //oldNight.endTimeMilli = System.currentTimeMillis()
 
             update(oldNight)
 
-            _navigateToSleepQuality.value = oldNight
+            _navigateToGrada.value = oldNight
         }
     }
 
@@ -114,10 +114,8 @@ class PartidoViewModel(
             clear()
 
             // And clear tonight since it's no longer in the database
-            tonight.value = null
+            enrada_actual.value = null
         }
     }
 
-    /**
-     */
 }
