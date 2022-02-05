@@ -41,7 +41,7 @@
             android:layout_height="@dimen/icon_size"
             android:layout_marginStart="@dimen/margin"
             android:layout_marginTop="@dimen/margin"
-            android:contentDescription="@string/quality_0"
+            android:contentDescription="@string/tribuna"
             android:onClick="@{() -> gradaViewModel.onSetSleepQuality(0)}"
             app:layout_constraintEnd_toStartOf="@+id/quality_one_image"
             app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +52,7 @@
             android:id="@+id/quality_one_image"
             android:layout_width="@dimen/icon_size"
             android:layout_height="@dimen/icon_size"
-            android:contentDescription="@string/quality_1"
+            android:contentDescription="@string/preferencia"
             android:onClick="@{() -> gradaViewModel.onSetSleepQuality(1)}"
             app:layout_constraintBottom_toBottomOf="@+id/quality_zero_image"
             app:layout_constraintEnd_toStartOf="@+id/quality_two_image"
@@ -64,7 +64,7 @@
             android:layout_width="@dimen/icon_size"
             android:layout_height="@dimen/icon_size"
             android:layout_marginEnd="@dimen/margin"
-            android:contentDescription="@string/quality_2"
+            android:contentDescription="@string/FS"
             android:onClick="@{() -> gradaViewModel.onSetSleepQuality(2)}"
             app:layout_constraintBottom_toBottomOf="@+id/quality_one_image"
             app:layout_constraintEnd_toEndOf="parent"
@@ -78,39 +78,15 @@
             android:layout_marginStart="@dimen/margin"
             android:layout_marginTop="@dimen/margin"
             android:layout_marginBottom="@dimen/margin"
-            android:contentDescription="@string/quality_3"
+            android:contentDescription="@string/FN"
             android:onClick="@{() -> gradaViewModel.onSetSleepQuality(3)}"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/quality_four_image"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/quality_zero_image"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/ic_sleep_3" />
 
-        <ImageView
-            android:id="@+id/quality_four_image"
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size"
-            android:contentDescription="@string/quality_4"
-            android:onClick="@{() -> gradaViewModel.onSetSleepQuality(4)}"
-            app:layout_constraintBottom_toBottomOf="@+id/quality_three_image"
-            app:layout_constraintEnd_toStartOf="@+id/quality_five_image"
-            app:layout_constraintStart_toEndOf="@+id/quality_three_image"
-            app:layout_constraintTop_toTopOf="@+id/quality_three_image"
-            app:srcCompat="@drawable/ic_sleep_4" />
 
-        <ImageView
-            android:id="@+id/quality_five_image"
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size"
-            android:layout_marginEnd="@dimen/margin"
-            android:contentDescription="@string/quality_5"
-            android:onClick="@{() -> gradaViewModel.onSetSleepQuality(5)}"
-            app:layout_constraintBottom_toBottomOf="@+id/quality_four_image"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/quality_four_image"
-            app:layout_constraintTop_toTopOf="@+id/quality_four_image"
-            app:srcCompat="@drawable/ic_sleep_5" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

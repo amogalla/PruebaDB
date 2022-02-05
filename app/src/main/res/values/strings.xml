@@ -22,17 +22,15 @@
     <string name="sleep_quality_fragment">SleepQualityFragment</string>
 
     <!-- Button labels -->
-    <string name="start">Start</string>
-    <string name="stop">Stop</string>
+    <string name="partido1">Cádiz - Rayo</string>
+    <string name="partido2">Cádiz - Osasuna</string>
     <string name="clear">Clear</string>
 
     <!-- contentDescription strings for quality icons -->
-    <string name="quality_0">Sleep Quality 0</string>
-    <string name="quality_1">Sleep Quality 1</string>
-    <string name="quality_2">Sleep Quality 2</string>
-    <string name="quality_3">Sleep Quality 3</string>
-    <string name="quality_4">Sleep Quality 4</string>
-    <string name="quality_5">Sleep Quality 5</string>
+    <string name="tribuna">Tribuna</string>
+    <string name="preferencia">Preferencia</string>
+    <string name="FS">Fondo sur</string>
+    <string name="FN">Fondo norte</string>
 
     <!-- Output to TextView styled with a little HTML -->
     <string name="title"><![CDATA[<h3>HERE IS YOUR SLEEP DATA</h3>]]></string>

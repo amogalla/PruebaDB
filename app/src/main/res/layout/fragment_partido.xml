@@ -23,7 +23,6 @@
          the whole ViewModel, so that we can access the LiveData,
          click handlers, and state variables. -->
     <data>
-
         <variable
             name="partidoViewModel"
             type="com.example.android.trackmysleepquality.partido.PartidoViewModel" />
@@ -46,7 +45,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/stop_button">
+            app:layout_constraintTop_toBottomOf="@+id/btn_partido2">
 
             <!-- In the TextView, we can access the nightsString LiveData,
                  which keeps it displayed and updated in the TextView
@@ -67,29 +66,29 @@
              you can set it for the Views using this lambda pattern. -->
 
         <Button
-            android:id="@+id/start_button"
+            android:id="@+id/btn_partido1"
             style="@style/SleepButtons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin"
-            android:text="@string/start"
             android:onClick="@{() -> partidoViewModel.onStartTracking()}"
-            app:layout_constraintBaseline_toBaselineOf="@id/stop_button"
-            app:layout_constraintEnd_toStartOf="@+id/stop_button"
+            android:text="@string/partido1"
+            app:layout_constraintBaseline_toBaselineOf="@id/btn_partido2"
+            app:layout_constraintEnd_toStartOf="@+id/btn_partido2"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/stop_button"
+            android:id="@+id/btn_partido2"
             style="@style/SleepButtons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin"
             android:layout_marginEnd="@dimen/margin"
-            android:text="@string/stop"
+            android:text="@string/partido2"
             android:onClick="@{() -> partidoViewModel.onStopTracking()}"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/start_button"
+            app:layout_constraintStart_toEndOf="@+id/btn_partido1"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
