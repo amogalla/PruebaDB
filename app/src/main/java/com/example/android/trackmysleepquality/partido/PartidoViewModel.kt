@@ -50,11 +50,11 @@ class PartidoViewModel(
     }
 
     private suspend fun getTonightFromDatabase(): Entrada? {
-            var night = database.getTonight()
-            if (night?.endTimeMilli != night?.startTimeMilli) {
-                night = null
+            var entrada = database.getEntrada()
+            if (entrada?.grada != entrada?.grada) {
+                entrada = null
             }
-            return night
+            return entrada
     }
 
     private suspend fun clear() {
@@ -72,15 +72,21 @@ class PartidoViewModel(
     /**
      * Executes when the START button is clicked.
      */
-    fun onStartTracking() {
+    fun seleccionDePartido() {
         viewModelScope.launch {
-            // Create a new night, which captures the current time,
-            // and insert it into the database.
-            val newNight = Entrada()
+            val entradaNueva = Entrada()
 
-            insert(newNight)
+            insert(entradaNueva)
 
             tonight.value = getTonightFromDatabase()
+
+            viewModelScope.launch {
+                val oldNight = tonight.value ?: return@launch
+                //oldNight.endTimeMilli = System.currentTimeMillis()
+                update(oldNight)
+                _navigateToSleepQuality.value = oldNight
+            }
+
         }
     }
 
@@ -89,18 +95,12 @@ class PartidoViewModel(
      */
     fun onStopTracking() {
         viewModelScope.launch {
-            // In Kotlin, the return@label syntax is used for specifying which function among
-            // several nested ones this statement returns from.
-            // In this case, we are specifying to return from launch(),
-            // not the lambda.
             val oldNight = tonight.value ?: return@launch
 
-            // Update the night in the database to add the end time.
-            oldNight.endTimeMilli = System.currentTimeMillis()
+            //oldNight.endTimeMilli = System.currentTimeMillis()
 
             update(oldNight)
 
-            // Set state to navigate to the GradaFragment.
             _navigateToSleepQuality.value = oldNight
         }
     }

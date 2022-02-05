@@ -71,7 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin"
-            android:onClick="@{() -> partidoViewModel.onStartTracking()}"
+            android:onClick="@{() -> partidoViewModel.seleccionDePartido()}"
             android:text="@string/partido1"
             app:layout_constraintBaseline_toBaselineOf="@id/btn_partido2"
             app:layout_constraintEnd_toStartOf="@+id/btn_partido2"
@@ -86,7 +86,7 @@
             android:layout_marginTop="@dimen/margin"
             android:layout_marginEnd="@dimen/margin"
             android:text="@string/partido2"
-            android:onClick="@{() -> partidoViewModel.onStopTracking()}"
+            android:onClick="@{() -> partidoViewModel.seleccionDePartido()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btn_partido1"
             app:layout_constraintTop_toTopOf="parent" />

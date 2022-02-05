@@ -13,7 +13,7 @@ import androidx.room.Update
 interface EntradaDatabaseDao {
 
     @Insert
-    suspend fun insert(night: Entrada)
+    suspend fun insert(entrada: Entrada)
 
     /**
      * When updating a row with a value already set in a column,
@@ -22,14 +22,14 @@ interface EntradaDatabaseDao {
      * @param night new value to write
      */
     @Update
-    suspend fun update(night: Entrada)
+    suspend fun update(entrada: Entrada)
 
     /**
      * Selects and returns the row that matches the supplied start time, which is our key.
      *
      * @param key startTimeMilli to match
      */
-    @Query("SELECT * from daily_sleep_quality_table WHERE nightId = :key")
+    @Query("SELECT * from entrada_table WHERE id_entrada = :key")
     suspend fun get(key: Long): Entrada?
 
     /**
@@ -37,7 +37,7 @@ interface EntradaDatabaseDao {
      *
      * This does not delete the table, only its contents.
      */
-    @Query("DELETE FROM daily_sleep_quality_table")
+    @Query("DELETE FROM entrada_table")
     suspend fun clear()
 
     /**
@@ -45,14 +45,14 @@ interface EntradaDatabaseDao {
      *
      * sorted by start time in descending order.
      */
-    @Query("SELECT * FROM daily_sleep_quality_table ORDER BY nightId DESC")
+    @Query("SELECT * FROM entrada_table ORDER BY id_entrada DESC")
     fun getAllNights(): LiveData<List<Entrada>>
 
     /**
      * Selects and returns the latest night.
      */
-    @Query("SELECT * FROM daily_sleep_quality_table ORDER BY nightId DESC LIMIT 1")
-    suspend fun getTonight(): Entrada?
+    @Query("SELECT * FROM entrada_table ORDER BY id_entrada DESC LIMIT 1")
+    suspend fun getEntrada(): Entrada?
 
 }
 

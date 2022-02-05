@@ -25,11 +25,16 @@ class GradaViewModel(
         _navigateToSleepTracker.value = null
     }
 
-    fun onSetSleepQuality(quality: Int) {
+    fun onSetSleepQuality(gradaElegida: Int) {
         viewModelScope.launch {
-                val tonight = database.get(sleepNightKey) ?: return@launch
-                tonight.sleepQuality = quality
-                database.update(tonight)
+            val entrada = database.get(sleepNightKey) ?: return@launch
+            when(gradaElegida){
+                0 -> entrada.grada = "Tribuna"
+                1 -> entrada.grada = "Preferencia"
+                2-> entrada.grada = "Fondo sur"
+                3 -> entrada.grada = "Fondo norte"
+            }
+            database.update(entrada)
 
             // Setting this state variable to true will alert the observer and trigger navigation.
             _navigateToSleepTracker.value = true

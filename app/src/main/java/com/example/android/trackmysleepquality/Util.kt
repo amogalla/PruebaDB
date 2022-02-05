@@ -82,7 +82,7 @@ fun formatNights(nights: List<Entrada>, resources: Resources): Spanned {
         nights.forEach {
             append("<br>")
             append(resources.getString(R.string.start_time))
-            append("\t${convertLongToDateString(it.startTimeMilli)}<br>")
+            /*append("\t${convertLongToDateString(it.startTimeMilli)}<br>")
             if (it.endTimeMilli != it.startTimeMilli) {
                 append(resources.getString(R.string.end_time))
                 append("\t${convertLongToDateString(it.endTimeMilli)}<br>")
@@ -95,7 +95,7 @@ fun formatNights(nights: List<Entrada>, resources: Resources): Spanned {
                 append("${it.endTimeMilli.minus(it.startTimeMilli) / 1000 / 60}:")
                 // Seconds
                 append("${it.endTimeMilli.minus(it.startTimeMilli) / 1000}<br><br>")
-            }
+            }*/
         }
     }
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
