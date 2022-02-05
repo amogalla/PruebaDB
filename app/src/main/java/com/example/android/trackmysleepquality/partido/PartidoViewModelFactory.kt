@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.trackmysleepquality.sleeptracker
+package com.example.android.trackmysleepquality.partido
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
