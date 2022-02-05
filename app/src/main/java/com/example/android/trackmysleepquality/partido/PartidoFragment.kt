@@ -37,7 +37,7 @@ class PartidoFragment : Fragment() {
         binding.lifecycleOwner = this
 
         // Add an Observer on the state variable for Navigating when STOP button is pressed.
-        partidoViewModel.navigateToSleepQuality.observe(viewLifecycleOwner, Observer { entrada ->
+        partidoViewModel.navigateToGrada.observe(viewLifecycleOwner, Observer { entrada ->
             entrada?.let {
                 this.findNavController().navigate(
                         PartidoFragmentDirections
