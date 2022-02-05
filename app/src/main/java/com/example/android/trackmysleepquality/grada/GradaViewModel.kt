@@ -16,13 +16,13 @@ class GradaViewModel(
         private val entradaKey: Long = 0L,
         val database: EntradaDatabaseDao) : ViewModel() {
 
-    private val _navigateToSleepTracker = MutableLiveData<Boolean?>()
+    private val _navigateToGrada = MutableLiveData<Boolean?>()
 
-    val navigateToSleepTracker: LiveData<Boolean?>
-        get() = _navigateToSleepTracker
+    val navigateToGrada: LiveData<Boolean?>
+        get() = _navigateToGrada
 
     fun doneNavigating() {
-        _navigateToSleepTracker.value = null
+        _navigateToGrada.value = null
     }
 
     fun onSetSleepQuality(gradaElegida: Int) {
@@ -37,7 +37,7 @@ class GradaViewModel(
             database.update(entrada)
 
             // Setting this state variable to true will alert the observer and trigger navigation.
-            _navigateToSleepTracker.value = true
+            _navigateToGrada.value = true
         }
     }
 }
